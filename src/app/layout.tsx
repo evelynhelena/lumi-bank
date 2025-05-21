@@ -7,8 +7,7 @@ import 'remixicon/fonts/remixicon.css'
 
 
 const inter = Inter({
-  variable: "--font-geist-sans",
-  weight: ['400', '500', '300','700'], // opcional
+  weight: ['400', '500', '300','700'],
   subsets: ["latin"],
 });
 
@@ -25,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased`}
+        className={`${inter.className} antialiased`}
       >
         <div>
           <Header />

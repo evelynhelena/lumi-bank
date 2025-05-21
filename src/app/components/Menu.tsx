@@ -6,7 +6,7 @@ const inter = Inter({
 });
 export default function Menu() {
     return (
-        <div className={`h-[100vh] p-6 bg-[#EDEDED] w-[246px] mt-[-20px] rounded-tr-[100px] fixed`}>
+        <div className={`h-[100vh] p-6 bg-[#EDEDED] w-[246px] mt-[105px] rounded-tr-[100px] fixed`}>
             teste
 
             <div className="mt-8">

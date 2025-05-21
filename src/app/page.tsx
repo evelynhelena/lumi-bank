@@ -3,7 +3,7 @@ import CardTransaction from "./components/CardTransaction";
 
 export default function Home() {
   return (
-    <div>  
+    <div className="mt-[105px]">  
       <span className="text-[#2E335B] text-3xl">Olá, Samanta</span>
       <CardBalance/>
 
