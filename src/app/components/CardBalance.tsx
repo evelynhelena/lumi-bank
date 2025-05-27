@@ -19,7 +19,7 @@ export default function CardBalance() {
     }
 
     return (
-        <div className="w-[500px] bg-[#F5F5F5] p-4 rounded-xl mt-8 text-[#2E335B] flex flex-col gap-5 font-medium">
+        <div className="w-full max-h-56 bg-[#F5F5F5] p-5 rounded-xl mt-8 text-[#2E335B] flex flex-col gap-5 font-medium">
             <div className="flex items-center text-xl gap-1.5">
                 <Image src={LogoIcon} alt="" width={19} height={19} /> 
                 <span>Conta corrente</span>
