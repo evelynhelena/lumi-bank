@@ -1,7 +1,7 @@
 
 export default function CardTransaction() {
     return (
-        <div className="w-full bg-[#F5F5F5] p-5 rounded-xl mt-5 text-[#2E335B] flex flex-col gap-5 max-h-[500px] overflow-auto">
+        <div className="w-full bg-[#F5F5F5] p-5 rounded-xl text-[#2E335B] flex flex-col gap-5 max-h-[465px] overflow-auto">
             <div>
                 <div>
                     <span className={`text-sm font-medium`}>12/05/2025</span>

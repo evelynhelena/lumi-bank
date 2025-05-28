@@ -1,4 +1,23 @@
+
+'use client';
+
+import { useState } from "react";
+import { currencyFormat } from "../utils/formatValues";
+//import { currencyFormat } from "../utils/formatValues";
+
 export function CardNewTransaction() {
+    const [valueTransaction, setValueTransaction] = useState("");
+
+
+    const handleChange = (value: string) => {
+        const numericValue = value.replace(/\D/g, "");
+        const number = Number(numericValue) / 100 || 0;
+
+        setValueTransaction(currencyFormat(number));
+    };
+
+
+
     return (
         <div className="w-full bg-[#F5F5F5] p-5 rounded-xl text-[#2E335B] flex flex-col gap-5">
             <span className="text-xl font-medium">Nova transação</span>
@@ -17,8 +36,9 @@ export function CardNewTransaction() {
             </div>
             <div>
                 <input
-                    type="number"
-                    placeholder="R$00,00"
+                    onChange={({ target }) => handleChange(target.value)}
+                    value={valueTransaction}
+                    placeholder="Valor"
                     className=" border-gray-400 border-[0.5px] rounded-[5px] p-2 w-full"
                 />
             </div>

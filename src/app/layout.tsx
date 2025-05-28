@@ -31,7 +31,7 @@ export default function RootLayout({
           <Menu />
         </div>
         <div className="flex justify-end p-20">
-          <div className="w-[calc(100%-246px)]">
+          <div className="w-full md:w-[calc(100%-246px)]">
             {children}
           </div>
         </div>

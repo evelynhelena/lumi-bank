@@ -4,10 +4,10 @@ import Avatar from '../../../public/assets/avatar.avif';
 
 export default function Header(){
     return(
-        <div className="bg-white p-10 justify-between shadow-lg flex items-center fixed w-full">
+        <div className="bg-white p-10 justify-between shadow-lg flex items-center fixed w-full z-10 md:z-0">
             <Image src={Logo} alt="Logo excrito LumiPay" width={196}/>
             <div className="flex items-center gap-5">
-                <span className="text-[18px] text-[#2E335B]">Samanta Rodrigues</span>  
+                <span className="text-[18px] text-[#2E335B] hidden md:block">Samanta Rodrigues</span>  
                 <Image 
                     className="inline-block size-8 rounded-full ring-2 ring-white" 
                     width={54} 
