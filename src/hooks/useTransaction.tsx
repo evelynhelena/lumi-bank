@@ -1,12 +1,13 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
+
 import api from '@/api/api';
-import { reactQueryKeys } from '@/utils/reactQueryKeys';
 import { queryClient } from '@/lib/react-query-client';
+import { reactQueryKeys } from '@/utils/reactQueryKeys';
 
 interface Transaction {
   id?: string;
   date?: Date;
-  userId: number;
+  userId?: number;
   transactionType: string;
   valueTransaction: string;
 }

@@ -57,6 +57,13 @@
       "userId": 1,
       "transactionType": "exchange",
       "valueTransaction": "R$ 789.889,89"
+    },
+    {
+      "id": "ec9b",
+      "date": "2025-06-01T20:07:30.820Z",
+      "userId": 1,
+      "transactionType": "doc-ted",
+      "valueTransaction": "R$ 666,66"
     }
   ]
 }

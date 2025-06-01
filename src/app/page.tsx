@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <div className="mt-27">
-        <span className="text-[#2E335B] text-3xl">Olá, {user?.name}</span>
+        <span className="color-text-gray text-3xl">Olá, {user?.name}</span>
       </div>
 
       <div className="flex gap-9 flex-col md:flex-row items-start mt-8">

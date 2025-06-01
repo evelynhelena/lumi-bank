@@ -14,6 +14,6 @@ Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o 
 Abra um novo terminal e coloque o seguinte comando:
 
 ```bash
-json-server --watch fakeBackEnd/db.json --port 3001
+npx json-server --watch fakeBackEnd/db.json --port 3001
 
 ```

@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.color-text-gray{
+  color:#2E335B;
+}
+
+.color-text-purple{
+  color:#5D5FEF;
+}
+
+.bg-gray-color-purple{
+  background-color:#F5F5F5;
+}

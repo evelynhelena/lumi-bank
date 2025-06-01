@@ -1,56 +1,66 @@
-"use client"
-import Image from "next/image";
-import LogoIcon from "../../public/assets/logo-icon.png";
-import { useState } from "react";
+"use client";
+
+import { ToastContainer, toast } from "react-toastify";
+import { useEffect, useState } from "react";
+
 import { useAccount } from "@/hooks/useAccount";
 
 interface CardBalanceProps {
-    userId: number;
+  userId: number;
 }
 
 export default function CardBalance({ userId }: CardBalanceProps) {
-    const [showBalance, setShowBalance] = useState<boolean>(false);
-    const {
-        data: accountData,
-        error: accountError,
-        isLoading: isLoadingAccountData
-    } = useAccount(userId);
+  const [showBalance, setShowBalance] = useState<boolean>(false);
+  const { data: accountData, error: accountError } = useAccount(userId);
 
-    if (isLoadingAccountData) {
-        return <div>Carregando...</div>;
-    }
-
+  useEffect(() => {
     if (accountError) {
-        return <div>Erro ao carregar os posts: {accountError.message}</div>;
+      toast.error("Erro ao carregar os dados do usuário");
     }
+  });
 
-    const CircleBlance = () => {
-        return (
-            <div className="flex gap-1.5 items-center">
-                R$
-                <i className="ri-circle-fill text-xs" />
-                <i className="ri-circle-fill text-xs " />
-                <i className="ri-circle-fill text-xs" />
-                <i className="ri-circle-fill text-xs" />
-            </div>
-        )
-    }
-
+  const CircleBlance = () => {
     return (
-        <div className="w-full max-h-56 bg-[#F5F5F5] p-5 rounded-xl text-[#2E335B] flex flex-col gap-5 font-medium">
-            <div className="flex items-center text-xl gap-1.5">
-                <Image src={LogoIcon} alt="" width={19} height={19} />
-                <span>{accountData?.accountType}</span>
-            </div>
-            <span className="text-xl">Saldo</span>
-            <div className="text-xl font-bold antialiased flex justify-between">
-                {showBalance ? `R$ ${accountData?.balance}` : CircleBlance()}
-                <i className={
-                    `${showBalance ? 'ri-eye-line' : 'ri-eye-off-line'} 
-                    cursor-pointer`}
-                    onClick={() => setShowBalance(!showBalance)}
-                />
-            </div>
+      <div className="flex gap-1.5 items-center">
+        R$
+        <i className="ri-circle-fill text-xs" />
+        <i className="ri-circle-fill text-xs " />
+        <i className="ri-circle-fill text-xs" />
+        <i className="ri-circle-fill text-xs" />
+      </div>
+    );
+  };
+
+  return (
+    <>
+      <div className="w-full max-h-56 bg-gray-color-purple p-5 rounded-xl color-text-gray flex flex-col gap-5 font-medium">
+        <div className="flex items-start text-xl gap-1.5">
+          <i className="ri-bank-fill text-xl color-text-purple" />
+          <span>{accountData?.accountType}</span>
         </div>
-    )
+        <span className="text-xl">Saldo</span>
+        <div className="text-xl font-bold antialiased flex justify-between">
+          {showBalance ? `R$ ${accountData?.balance}` : CircleBlance()}
+          <i
+            className={`${showBalance ? "ri-eye-line" : "ri-eye-off-line"} 
+                    cursor-pointer`}
+            onClick={() => setShowBalance(!showBalance)}
+          />
+        </div>
+      </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+    </>
+  );
 }
