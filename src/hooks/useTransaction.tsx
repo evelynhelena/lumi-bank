@@ -16,6 +16,12 @@ async function createTransaction(transaction: Transaction): Promise<Transaction>
   const res = await api.post('/transactions', transaction);
   return res.data;
 }
+
+async function deleteTransaction(id?: string){
+  const res = await api.delete(`/transactions/${id}`, );
+  return res.data;
+}
+
 async function fetchTransactions(): Promise<Transaction[]> {
   const res = await api.get('/transactions?userId=1');
   const sorted = res.data.sort((a: Transaction, b: Transaction) =>
@@ -27,6 +33,15 @@ async function fetchTransactions(): Promise<Transaction[]> {
 export function useCreateTransaction() {
   return useMutation<Transaction, Error, Transaction>({
     mutationFn: createTransaction,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [reactQueryKeys.GET_TRANSACTIONS] });
+    },
+  });
+}
+
+export function useDeleteTransaction() {
+  return useMutation<string,Error,string>({
+    mutationFn: (id?:string) => deleteTransaction(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [reactQueryKeys.GET_TRANSACTIONS] });
     },

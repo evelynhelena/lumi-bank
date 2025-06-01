@@ -22,13 +22,13 @@ export default function CardTransaction() {
 
   return (
     <>
-      <div className="w-full bg-gray-color-purple p-5 rounded-xl color-text-gray flex flex-col gap-5 max-h-[465px] overflow-auto">
+      <div className="w-full bg-gray-color-purple p-5 rounded-xl color-text-gray flex flex-col gap-5 max-h-[485px] overflow-auto">
         {isLoadingTransactionData ? (
           <div>Carregando...</div>
         ) : (
           transactions?.map((transaction) => (
             <div key={transaction.id}>
-              <div>
+              <div className="mb-2.5">
                 <div>
                   <span className={`text-sm font-medium`}>
                     {formatDateTime(new Date(transaction?.date || ""))}
