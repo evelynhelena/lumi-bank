@@ -1,0 +1,5 @@
+export const reactQueryKeys = {
+    GET_USER_BY_ID: 'GET_USER_BY_ID',
+    GET_ACCOUNT_BY_USER_ID: 'GET_ACCOUNT_BY_USER_ID',
+    GET_TRANSACTIONS: 'GET_TRANSACTIONS',
+}

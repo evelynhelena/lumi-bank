@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "userId": 1,
+      "name": "Elyse Sinclair",
+      "urlAvatar": "",
+      "id": "f6c0"
+    }
+  ],
+  "accounts": [
+    {
+      "userId": 1,
+      "accountType": "Conta corrente",
+      "balance": "8.407,44",
+      "id": "bb1d"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "7ad6",
+      "date": "2025-05-31T23:49:37.856Z",
+      "userId": 1,
+      "transactionType": "exchange",
+      "valueTransaction": "R$ 444,44"
+    },
+    {
+      "id": "9204",
+      "date": "2025-05-31T23:56:49.778Z",
+      "userId": 1,
+      "transactionType": "exchange",
+      "valueTransaction": "R$ 667,77"
+    },
+    {
+      "id": "18e8",
+      "date": "2025-06-01T00:00:35.557Z",
+      "userId": 1,
+      "transactionType": "exchange",
+      "valueTransaction": "R$ 88.889,99"
+    },
+    {
+      "id": "42fa",
+      "date": "2025-06-01T00:00:40.490Z",
+      "userId": 1,
+      "transactionType": "loan",
+      "valueTransaction": "R$ 6.786.786.786,78"
+    },
+    {
+      "id": "ff3b",
+      "date": "2025-06-01T00:03:36.921Z",
+      "userId": 1,
+      "transactionType": "doc-ted",
+      "valueTransaction": "R$ 667,77"
+    },
+    {
+      "id": "ad06",
+      "date": "2025-06-01T00:03:43.538Z",
+      "userId": 1,
+      "transactionType": "exchange",
+      "valueTransaction": "R$ 789.889,89"
+    }
+  ]
+}
