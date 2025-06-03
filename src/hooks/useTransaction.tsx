@@ -4,7 +4,7 @@ import api from '@/api/api';
 import { queryClient } from '@/lib/react-query-client';
 import { reactQueryKeys } from '@/utils/reactQueryKeys';
 
-interface Transaction {
+export interface Transaction {
   id?: string;
   date?: Date;
   userId?: number;
@@ -14,6 +14,11 @@ interface Transaction {
 
 async function createTransaction(transaction: Transaction): Promise<Transaction> {
   const res = await api.post('/transactions', transaction);
+  return res.data;
+}
+
+async function editTransaction(transaction: Transaction): Promise<Transaction> {
+  const res = await api.put(`/transactions/${transaction.id}`, transaction);
   return res.data;
 }
 
@@ -28,6 +33,15 @@ async function fetchTransactions(): Promise<Transaction[]> {
     new Date(b.date || '').getTime() - new Date(a.date || '').getTime()
   );
   return sorted;
+}
+
+export function useEditTransaction() {
+  return useMutation<Transaction, Error, Transaction>({
+    mutationFn: editTransaction,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [reactQueryKeys.GET_TRANSACTIONS] });
+    },
+  });
 }
 
 export function useCreateTransaction() {

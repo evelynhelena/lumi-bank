@@ -17,10 +17,10 @@
   ],
   "transactions": [
     {
-      "id": "b1d7",
-      "date": "2025-06-01T21:41:58.317Z",
+      "id": "039e",
+      "date": "2025-06-03T00:46:28.925Z",
       "userId": 1,
-      "transactionType": "pix",
+      "transactionType": "exchange",
       "valueTransaction": "R$ 4.444,44"
     }
   ]

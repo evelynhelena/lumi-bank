@@ -1,22 +1,31 @@
 "use client";
 
 import { ToastContainer, toast } from "react-toastify";
-import { useDeleteTransaction, useTransaction } from "@/hooks/useTransaction";
+import { Transaction, useDeleteTransaction, useTransaction } from "@/hooks/useTransaction";
+import { useEffect, useState } from "react";
 
+import { ModalEditTransaction } from "@/components/ModalEditTransaction";
 import { formatDateTime } from "@/utils/formatValues";
 import { translateTransactionType } from "@/utils/traslateTransactionType";
-import { useEffect } from "react";
 
 export default function TransactionPage() {
+  const [showModal, setShowModal] = useState(false);
+  const [transactionByID,setTransactionByID] = useState<Transaction>();
   const {
     data: transactions,
     error,
     isLoading: isLoadingTransactionData,
   } = useTransaction();
-  const { mutate } = useDeleteTransaction();
+
+  const { mutate: deleteTransaction } = useDeleteTransaction();
 
   const handleDeleteTransaction = (id?: string) => {
-    mutate(id || "");
+    deleteTransaction(id || "");
+  };
+
+  const handleEditTransaction = async (transactionByID: Transaction) => {
+    setTransactionByID(transactionByID);
+    setShowModal(true);
   };
 
   useEffect(() => {
@@ -41,7 +50,8 @@ export default function TransactionPage() {
                       {formatDateTime(new Date(transaction?.date || ""))}
                     </span>
                     <div className="flex gap-2.5">
-                      <i className="ri-pencil-line text-2xl cursor-pointer color-text-gray" />
+                      <i className="ri-pencil-line text-2xl cursor-pointer color-text-gray"  
+                      onClick={() => handleEditTransaction(transaction)}/>
                       <i
                         className="ri-delete-bin-6-line text-2xl cursor-pointer color-text-gray"
                         onClick={() => handleDeleteTransaction(transaction.id)}
@@ -66,7 +76,7 @@ export default function TransactionPage() {
           </>
         )}
       </div>
-
+      {showModal && <ModalEditTransaction setShowModal={setShowModal} transaction={transactionByID}/>}
       <ToastContainer
         position="top-right"
         autoClose={5000}
