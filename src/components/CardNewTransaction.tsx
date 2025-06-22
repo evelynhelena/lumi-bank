@@ -17,7 +17,7 @@ export function CardNewTransaction() {
     if (!user?.userId || error) {
       toast.error("Erro ao carregar os dados do usuário");
     }
-  });
+  },[error, user?.userId]);
 
   const handleChangeTransactionType = (value: string) => {
     setSelectedTransactionType(value);

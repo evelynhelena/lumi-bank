@@ -17,7 +17,7 @@ export default function CardBalance({ userId }: CardBalanceProps) {
     if (accountError) {
       toast.error("Erro ao carregar os dados do usuário");
     }
-  });
+  },[accountError]);
 
   const CircleBlance = () => {
     return (
