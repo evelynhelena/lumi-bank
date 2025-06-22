@@ -32,7 +32,7 @@ export default function TransactionPage() {
     if (error) {
       toast.error("Erro ao carregar transação");
     }
-  });
+  },[error]);
 
   return (
     <>

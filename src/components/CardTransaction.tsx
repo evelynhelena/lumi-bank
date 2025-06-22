@@ -18,7 +18,7 @@ export default function CardTransaction() {
     if (error) {
       toast.error("Erro ao carregar transação");
     }
-  });
+  },[error]);
 
   return (
     <>
