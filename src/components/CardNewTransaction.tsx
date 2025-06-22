@@ -33,7 +33,6 @@ export function CardNewTransaction() {
   const handleCreatTransacion = () => {
     mutate(
       {
-        date: new Date(),
         userId: user?.id,
         transactionType: selectedTransactionType,
         valueTransaction: valueTransaction,
