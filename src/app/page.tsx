@@ -10,8 +10,7 @@ import { useUsers } from "@/hooks/useUsers";
 
 export default function Home() {
   const { data: user, error, isLoading: isLoadingUserData } = useUsers();
-  console.log(user)
-
+  
   useEffect(() => {
     if (error) {
       toast.error("Erro ao carregar os dados do usuário");
