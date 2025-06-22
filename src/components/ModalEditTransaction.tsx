@@ -40,8 +40,6 @@ export function ModalEditTransaction({setShowModal,transaction}:ModalEditTransac
     mutate(
       {
         id: transaction?.id,
-        date: transaction?.date,
-        userId: user?.id,
         transactionType: selectedTransactionType,
         valueTransaction: valueTransaction,
       },
