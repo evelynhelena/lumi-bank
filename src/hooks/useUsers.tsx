@@ -9,7 +9,7 @@ interface User {
 }
 
 async function fetchUsers(): Promise<User> {
-  const res = await api.get('/users?userId=1');
+  const res = await api.get('/users/1');
   return res.data[0];
 }
 

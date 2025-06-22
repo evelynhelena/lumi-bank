@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-const url = 'http://localhost:3001'
+const url = 'https://server-lumi-bank-3.onrender.com'
 
 const api = Axios.create({
   baseURL: url,
