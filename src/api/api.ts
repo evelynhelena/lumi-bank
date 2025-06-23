@@ -1,12 +1,13 @@
 import Axios from 'axios'
 
-const url = 'http://localhost:3001'
+const baseURL = process.env.NEXT_PUBLIC_API_URL
 
 const api = Axios.create({
-  baseURL: url,
+  baseURL,
   headers: {
     'Content-Type': 'application/json',
   },
-})
+});
+
 
 export default api

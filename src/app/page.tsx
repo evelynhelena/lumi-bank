@@ -10,12 +10,12 @@ import { useUsers } from "@/hooks/useUsers";
 
 export default function Home() {
   const { data: user, error, isLoading: isLoadingUserData } = useUsers();
-
+  
   useEffect(() => {
     if (error) {
       toast.error("Erro ao carregar os dados do usuário");
     }
-  });
+  },[error]);
 
   return (
     <>
@@ -29,10 +29,10 @@ export default function Home() {
 
           <div className="flex gap-9 flex-col md:flex-row items-start mt-8">
             <div className="w-full flex flex-col gap-12">
-              {!user?.userId ? (
+              {!user?.id ? (
                 <div>ID do usuário não encontrado</div>
               ) : (
-                <CardBalance userId={user.userId} />
+                <CardBalance userId={user.id} />
               )}
               <CardNewTransaction />
             </div>

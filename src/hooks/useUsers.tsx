@@ -3,14 +3,14 @@ import { reactQueryKeys } from '@/utils/reactQueryKeys';
 import { useQuery } from '@tanstack/react-query';
 
 interface User {
-  userId: number;
+  id: number;
   name: string;
   urlAvatar: string;
 }
 
 async function fetchUsers(): Promise<User> {
-  const res = await api.get('/users?userId=1');
-  return res.data[0];
+  const res = await api.get('/users/1');
+  return res.data;
 }
 
 export function useUsers() {

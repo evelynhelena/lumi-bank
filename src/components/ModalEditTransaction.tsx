@@ -19,10 +19,10 @@ export function ModalEditTransaction({setShowModal,transaction}:ModalEditTransac
   const { mutate } = useEditTransaction();
 
   useEffect(() => {
-    if (!user?.userId || error) {
+    if (!user?.id || error) {
       toast.error("Erro ao carregar os dados do usuário");
     }
-  },[error, user?.userId]);
+  },[error, user?.id]);
 
 
   const handleChangeTransactionType = (value: string) => {
@@ -40,8 +40,6 @@ export function ModalEditTransaction({setShowModal,transaction}:ModalEditTransac
     mutate(
       {
         id: transaction?.id,
-        date: transaction?.date,
-        userId: user?.userId,
         transactionType: selectedTransactionType,
         valueTransaction: valueTransaction,
       },

@@ -15,7 +15,7 @@ export default function Header() {
     if (error) {
       toast.error("Erro ao carregar os dados do usuário");
     }
-  });
+  },[error]);
 
   return (
     <>

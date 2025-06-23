@@ -14,10 +14,10 @@ export function CardNewTransaction() {
   const { mutate } = useCreateTransaction();
 
   useEffect(() => {
-    if (!user?.userId || error) {
+    if (!user?.id || error) {
       toast.error("Erro ao carregar os dados do usuário");
     }
-  });
+  },[error, user?.id]);
 
   const handleChangeTransactionType = (value: string) => {
     setSelectedTransactionType(value);
@@ -33,8 +33,7 @@ export function CardNewTransaction() {
   const handleCreatTransacion = () => {
     mutate(
       {
-        date: new Date(),
-        userId: user?.userId,
+        userId: user?.id,
         transactionType: selectedTransactionType,
         valueTransaction: valueTransaction,
       },
