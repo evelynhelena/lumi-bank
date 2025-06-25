@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev:all": "concurrently \"npm run dev\" \"npx json-server --watch fakeBackEnd/db.json --port 3001\"",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
