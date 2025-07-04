@@ -5,7 +5,7 @@ import { Transaction, useDeleteTransaction, useTransaction } from "@/hooks/useTr
 import { useEffect, useState } from "react";
 
 import { ModalEditTransaction } from "@/components/ModalEditTransaction";
-import { formatDateTime } from "@/utils/formatValues";
+import { currencyFormat, formatDateTime } from "@/utils/formatValues";
 import { translateTransactionType } from "@/utils/traslateTransactionType";
 
 export default function TransactionPage() {
@@ -65,7 +65,7 @@ export default function TransactionPage() {
 
                     <div className="flex flex-col text-end">
                       <span className="font-bold text-xl">
-                        {transaction.valueTransaction}
+                        {currencyFormat(parseFloat(transaction.valueTransaction))}
                       </span>
                     </div>
                   </div>

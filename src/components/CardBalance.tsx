@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useEffect, useState } from "react";
 
 import { useAccount } from "@/hooks/useAccount";
+import { currencyFormat } from "@/utils/formatValues";
 
 interface CardBalanceProps {
   userId: number;
@@ -40,7 +41,7 @@ export default function CardBalance({ userId }: CardBalanceProps) {
         </div>
         <span className="text-xl">Saldo</span>
         <div className="text-xl font-bold antialiased flex justify-between">
-          {showBalance ? `R$ ${accountData?.balance}` : CircleBlance()}
+          {showBalance ? `${accountData?.balance && currencyFormat(parseFloat(accountData.balance))}` : CircleBlance()}
           <i
             className={`${showBalance ? "ri-eye-line" : "ri-eye-off-line"} 
                     cursor-pointer`}
