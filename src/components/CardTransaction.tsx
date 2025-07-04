@@ -2,7 +2,7 @@
 
 import { ToastContainer, toast } from "react-toastify";
 
-import { formatDateTime } from "@/utils/formatValues";
+import { currencyFormat, formatDateTime } from "@/utils/formatValues";
 import { translateTransactionType } from "@/utils/traslateTransactionType";
 import { useEffect } from "react";
 import { useTransaction } from "@/hooks/useTransaction";
@@ -41,7 +41,7 @@ export default function CardTransaction() {
 
                   <div className="flex flex-col text-end">
                     <span className="font-bold text-sm">
-                      {transaction.valueTransaction}
+                      {currencyFormat(parseFloat(transaction.valueTransaction))}
                     </span>
                   </div>
                 </div>

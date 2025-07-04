@@ -11,6 +11,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.79.0",
     "axios": "^1.9.0",
+    "concurrently": "^9.1.2",
     "json-server": "^1.0.0-beta.3",
     "next": "15.3.1",
     "react": "^19.0.0",
